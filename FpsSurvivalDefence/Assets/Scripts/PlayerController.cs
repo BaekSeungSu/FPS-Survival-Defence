@@ -18,9 +18,9 @@ public class PlayerController : MonoBehaviour
     private float jumpForce;
 
     //상태변수
-    private bool isRun = false;
     private bool isCrouch = false;
     private bool isGround = true;
+    private bool isRun = false;
 
     //앉았을 때 얼마나 앉을지 결정하는 변수
     [SerializeField]
@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
         //앉은 상태에서 달리기 실행시 달리기 취소
         if (isCrouch)
             Crouch();
-        
+
         isRun = true;
         applySpeed = runSpeed;
     }
