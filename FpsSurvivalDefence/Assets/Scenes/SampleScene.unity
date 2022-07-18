@@ -1309,6 +1309,8 @@ GameObject:
   - component: {fileID: 759369634}
   - component: {fileID: 759369635}
   - component: {fileID: 759369636}
+  - component: {fileID: 759369637}
+  - component: {fileID: 759369638}
   m_Layer: 2
   m_Name: Holder
   m_TagString: Untagged
@@ -1339,7 +1341,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759369632}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f227c1a6b21389e4199d10c9761c1341, type: 3}
   m_Name: 
@@ -1358,7 +1360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentGun: {fileID: 254164601}
-  originPos: {x: 0, y: 0, z: 0}
+  isFineSightMode: 0
   theCam: {fileID: 653530353}
   hit_effect_prefab: {fileID: 3822173798316027927, guid: 273ecbd2f32e1c94cac8bd8d4b882ee2, type: 3}
 --- !u!82 &759369636
@@ -1457,6 +1459,43 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &759369637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759369632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6588cb689714b0e449f7915a80a64182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeaponType: GUN
+  changeWeaponDelayTime: 0.1
+  changeWeaponEndDelayTime: 0.1
+  guns:
+  - {fileID: 254164601}
+  hands:
+  - {fileID: 5393352375245897408}
+  theGunController: {fileID: 759369635}
+  theHandController: {fileID: 759369634}
+--- !u!114 &759369638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759369632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054b6dfa68178754386850c0058b3c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limitPos: {x: 0.3, y: 0.1, z: 0}
+  fineSightLimitPos: {x: 0.01, y: 0.01, z: 0}
+  smoothSway: {x: 0.05, y: 0.01, z: 0}
+  theGunController: {fileID: 759369635}
 --- !u!1 &797741500
 GameObject:
   m_ObjectHideFlags: 0

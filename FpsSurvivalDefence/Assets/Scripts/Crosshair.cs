@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class Crosshair : MonoBehaviour
 {
+
+
+    private const float WALKING_FIRE = 0.08f, STANDING_FIRE = 0.04f, CROUCHING_FIRE = 0.02f, FINESIGHT_FIRE = 0.001f;
+
     [SerializeField]
     private Animator animator;
 
-    //크로스헤어 상태에 따른 총의 정확도
+
+    // 크로스헤어 상태에 따른 총의 정확도.
     private float gunAccuracy;
 
-    //크로스 헤어 비활성화를 위한 부모 객체
+
+    // 크로스 헤어 비활성화를 위한 부모 객체.
     [SerializeField]
     private GameObject go_CrosshairHUD;
     [SerializeField]
@@ -18,10 +24,17 @@ public class Crosshair : MonoBehaviour
 
     public void WalkingAnimation(bool _flag)
     {
+        WeaponManager.currentWeaponAnim.SetBool("Walk", _flag);
         animator.SetBool("Walking", _flag);
     }
 
     public void RunningAnimation(bool _flag)
+    {
+        WeaponManager.currentWeaponAnim.SetBool("Run", _flag);
+        animator.SetBool("Running", _flag);
+    }
+
+    public void JumpingAnimation(bool _flag)
     {
         animator.SetBool("Running", _flag);
     }
@@ -36,6 +49,7 @@ public class Crosshair : MonoBehaviour
         animator.SetBool("FineSight", _flag);
     }
 
+
     public void FireAnimation()
     {
         if (animator.GetBool("Walking"))
@@ -43,7 +57,7 @@ public class Crosshair : MonoBehaviour
         else if (animator.GetBool("Crouching"))
             animator.SetTrigger("Crouch_Fire");
         else
-           animator.SetTrigger("Idle_Fire");
+            animator.SetTrigger("Idle_Fire");
     }
 
     public float GetAccuracy()
@@ -59,4 +73,5 @@ public class Crosshair : MonoBehaviour
 
         return gunAccuracy;
     }
+
 }
